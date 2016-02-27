@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Grability</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="link"><u>Visit us</u></string>
+    <string name="title_activity_product_details">ProductDetails</string>
+    <string name="title_activity_test">test</string>
+
+</resources>

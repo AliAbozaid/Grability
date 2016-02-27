@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--categories-->
+    <array name="categories">
+        <item name="Audiobooks">Audiobooks</item>
+        <item name="Books">Books</item>
+        <item name="IOSApps">IOS Apps</item>
+        <item name="ITunesU">ITunesU</item>
+        <item name="MACApps">MAC Apps</item>
+        <item name="Movies">Movies</item>
+        <!--<item name="Music">Music</item>-->
+        <item name="MusicVideos">Music Videos</item>
+        <item name="Podcasts">Podcasts</item>
+        <item name="TVShows">TV Shows</item>
+    </array>
+
+    <!--top AudioBook-->
+    <array name="audiobooks">
+        <item>Top Audiobooks</item>
+    </array>
+
+
+    <!-- Books -->
+    <array name="books">
+        <item>Top Free eBooks</item>
+        <item>Top Paid eBooks</item>
+        <item>Top Textbooks</item>
+    </array>
+
+    <!-- IOS Apps -->
+    <array name="iosapps">
+        <item>New Applications</item>
+        <item>New Free Applications</item>
+        <item>New Paid Applications</item>
+        <item>Top Free Applications</item>
+        <item>Top Free IPad Applications</item>
+        <item>Top Grossing Applications</item>
+        <item>Top Grossing IPad Applications</item>
+        <item>Top Paid Applications</item>
+        <item>Top Paid IPad Applications</item>
+    </array>
+
+    <!-- ITunes  -->
+    <array name="itunesu">
+        <item>Top iTunes U Collections</item>
+        <item>Top iTunes U Courses</item>
+    </array>
+
+    <!-- Mac Apps  -->
+    <array name="macapps">
+        <item>Top Free Mac Apps</item>
+        <item>Top Grossing Mac Apps</item>
+        <!--<item>Top Mac Apps</item>-->
+        <item>Top Paid Mac Apps</item>
+    </array>
+
+    <!-- Movies  -->
+    <array name="movies">
+        <item>Top Movies</item>
+        <item>Top Video Rentals</item>
+    </array>
+
+    <!-- Music Videos  -->
+    <array name="musicvideos">
+        <item>Top Music Videos</item>
+    </array>
+
+    <!-- Podcast  -->
+    <array name="podcasts">
+        <item>Top Podcasts</item>
+    </array>
+
+    <!-- TV Shows  -->
+    <array name="tvshows">
+        <item>Top TV Episodes</item>
+        <item>Top TV Seasons</item>
+    </array>
+</resources>
