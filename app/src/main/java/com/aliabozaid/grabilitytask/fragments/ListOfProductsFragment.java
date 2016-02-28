@@ -102,12 +102,12 @@ public class ListOfProductsFragment extends Fragment {
 
 
         productController = retrofit.create(ProductController.class);
-        loadMore(0);
+        getProducts();
 
         return rootView;
     }
 
-    private void loadMore(int from) {
+    private void getProducts() {
         products.clear();
         Call<ListOfProductsModel> call = productController.getProducts(url, BuildConfig.LIMIT, "json");
 
