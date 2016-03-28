@@ -1,4 +1,4 @@
-package com.aliabozaid.grabilitytask.models;
+package com.aliabozaid.grabilitytask.data.models;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -91,18 +91,6 @@ public class ListOfProductsModel {
             public class Title {
                 public String label;
             }
-
-            /*public Link link;
-
-            public class Link {
-                public Attributes attributes;
-
-                public class Attributes {
-                    public String rel;
-                    public String type;
-                    public String href;
-                }
-            }*/
 
             public Id id;
 

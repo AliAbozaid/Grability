@@ -1,4 +1,4 @@
-package com.aliabozaid.grabilitytask.module;
+package com.aliabozaid.grabilitytask.data.module;
 
 
 import com.aliabozaid.grabilitytask.BuildConfig;
@@ -15,9 +15,10 @@ import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import retrofit2.GsonConverterFactory;
 import retrofit2.Retrofit;
-import retrofit2.ScalarsConverterFactory;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 
 @Module
@@ -69,6 +70,8 @@ public class ApiModule {
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addConverterFactory(ScalarsConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+
                 .build();
     }
 

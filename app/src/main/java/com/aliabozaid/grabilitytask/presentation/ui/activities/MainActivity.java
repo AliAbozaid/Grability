@@ -1,4 +1,4 @@
-package com.aliabozaid.grabilitytask;
+package com.aliabozaid.grabilitytask.presentation.ui.activities;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -13,8 +13,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import com.aliabozaid.grabilitytask.adapters.TabAdapters;
-import com.aliabozaid.grabilitytask.fragments.ListOfProductsFragment;
+import com.aliabozaid.grabilitytask.R;
+import com.aliabozaid.grabilitytask.presentation.ui.adapters.TabAdapters;
+import com.aliabozaid.grabilitytask.presentation.ui.fragments.ListOfProductsFragment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

@@ -1,4 +1,4 @@
-package com.aliabozaid.grabilitytask.fragments;
+package com.aliabozaid.grabilitytask.presentation.ui.fragments;
 
 import android.app.Activity;
 import android.content.res.Configuration;
@@ -16,10 +16,12 @@ import android.widget.Toast;
 
 import com.aliabozaid.grabilitytask.BuildConfig;
 import com.aliabozaid.grabilitytask.R;
-import com.aliabozaid.grabilitytask.adapters.ProductsAdapter;
-import com.aliabozaid.grabilitytask.contollers.ProductController;
-import com.aliabozaid.grabilitytask.models.ListOfProductsModel;
-import com.aliabozaid.grabilitytask.singleton.MyApplication;
+import com.aliabozaid.grabilitytask.presentation.presenter.MainPresenter;
+import com.aliabozaid.grabilitytask.presentation.presenter.impl.ProductsPresenterImpl;
+import com.aliabozaid.grabilitytask.presentation.ui.adapters.ProductsAdapter;
+import com.aliabozaid.grabilitytask.data.contollers.ProductController;
+import com.aliabozaid.grabilitytask.data.models.ListOfProductsModel;
+import com.aliabozaid.grabilitytask.MyApplication;
 
 import java.util.ArrayList;
 
@@ -32,7 +34,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class ListOfProductsFragment extends Fragment {
+public class ListOfProductsFragment extends Fragment implements MainPresenter.PresenterCallBack {
     ProductController productController;
     @Bind(R.id.recycler_view)
     RecyclerView recyclerView;
@@ -45,6 +47,7 @@ public class ListOfProductsFragment extends Fragment {
     private String url;
     private StaggeredGridLayoutManager gaggeredGridLayoutManager;
     private RecyclerView.LayoutManager mLayoutManager;
+    MainPresenter mainPresenter;
 
 
     @Inject
@@ -77,8 +80,8 @@ public class ListOfProductsFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_list_of_products, container, false);
         ButterKnife.bind(this, rootView);
-        progressBar.setVisibility(View.VISIBLE);
-        recyclerView.setVisibility(View.GONE);
+        this.showLoading(true);
+
         MyApplication app = (MyApplication) getActivity().getApplication();
         app.getApiComponent().inject(this);
         products = new ArrayList<>();
@@ -102,36 +105,12 @@ public class ListOfProductsFragment extends Fragment {
 
 
         productController = retrofit.create(ProductController.class);
-        getProducts();
+        //call presenter to get data
+        mainPresenter = new ProductsPresenterImpl(retrofit, url, this);
 
         return rootView;
     }
 
-    private void getProducts() {
-        products.clear();
-        Call<ListOfProductsModel> call = productController.getProducts(url, BuildConfig.LIMIT, "json");
-
-        call.enqueue(new Callback<ListOfProductsModel>() {
-            @Override
-            public void onResponse(Response<ListOfProductsModel> response) {
-                progressBar.setVisibility(View.GONE);
-                recyclerView.setVisibility(View.VISIBLE);
-                if (response.body() != null) {
-                    products.addAll(response.body().feed.entry);
-                    productsAdapter.notifyDataSetChanged();
-                }
-            }
-
-            @Override
-            public void onFailure(Throwable t) {
-                Log.d("test", t.toString());
-                progressBar.setVisibility(View.GONE);
-                recyclerView.setVisibility(View.VISIBLE);
-                Toast.makeText(getActivity(), "Please check your internet connection", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }
 
     public boolean isTablet(Activity context) {
         return (context.getResources().getConfiguration().screenLayout
@@ -145,4 +124,33 @@ public class ListOfProductsFragment extends Fragment {
     }
 
 
+    @Override
+    public void showLoading(boolean show) {
+        if (show)
+        {
+            progressBar.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
+        }
+        else
+        {
+            progressBar.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public void showConnectionError(Throwable t) {
+        progressBar.setVisibility(View.GONE);
+        recyclerView.setVisibility(View.VISIBLE);
+        Toast.makeText(getActivity(), "Please check your internet connection", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void updateView(Object data) {
+        ListOfProductsModel listOfProductsModel = (ListOfProductsModel) data;
+        if (data != null) {
+            products.addAll(listOfProductsModel.feed.entry);
+            productsAdapter.notifyDataSetChanged();
+        }
+    }
 }
