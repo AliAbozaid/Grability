@@ -1,4 +1,4 @@
-package com.aliabozaid.grabilitytask;
+package com.aliabozaid.grabilitytask.presentation.ui.activities;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -16,7 +16,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.aliabozaid.grabilitytask.models.ListOfProductsModel;
+import com.aliabozaid.grabilitytask.BuildConfig;
+import com.aliabozaid.grabilitytask.R;
+import com.aliabozaid.grabilitytask.data.models.ListOfProductsModel;
 import com.google.gson.Gson;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;

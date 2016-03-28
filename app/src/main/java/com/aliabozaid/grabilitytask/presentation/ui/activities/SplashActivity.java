@@ -1,4 +1,4 @@
-package com.aliabozaid.grabilitytask;
+package com.aliabozaid.grabilitytask.presentation.ui.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.Window;
 import android.view.WindowManager;
+
+import com.aliabozaid.grabilitytask.R;
 
 public class SplashActivity extends Activity {
 
