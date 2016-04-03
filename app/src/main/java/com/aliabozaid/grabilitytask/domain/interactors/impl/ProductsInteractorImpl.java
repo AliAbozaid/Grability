@@ -1,9 +1,9 @@
-package com.aliabozaid.grabilitytask.data.interactors.impl;
+package com.aliabozaid.grabilitytask.domain.interactors.impl;
 
 import com.aliabozaid.grabilitytask.BuildConfig;
-import com.aliabozaid.grabilitytask.data.contollers.ProductController;
-import com.aliabozaid.grabilitytask.data.interactors.ResponseCallback;
-import com.aliabozaid.grabilitytask.data.models.ListOfProductsModel;
+import com.aliabozaid.grabilitytask.domain.contollers.ProductController;
+import com.aliabozaid.grabilitytask.domain.interactors.ResponseCallback;
+import com.aliabozaid.grabilitytask.domain.models.ListOfProductsModel;
 import com.aliabozaid.grabilitytask.presentation.presenter.MainPresenter;
 
 import retrofit2.Retrofit;
@@ -19,10 +19,12 @@ public class ProductsInteractorImpl implements ResponseCallback {
     private ResponseCallback.MYCallback mCallback;
     MainPresenter.PresenterCallBack presenterCallBack;
 
+
     public ProductsInteractorImpl(Retrofit retrofit, String url, ResponseCallback.MYCallback mCallback, MainPresenter.PresenterCallBack presenterCallBack) {
         this.mCallback = mCallback;
         this.presenterCallBack = presenterCallBack;
         getProducts(retrofit, url);
+
     }
 
     public void getProducts(Retrofit retrofit, String url) {
@@ -50,6 +52,5 @@ public class ProductsInteractorImpl implements ResponseCallback {
                 });
 
     }
-
 
 }

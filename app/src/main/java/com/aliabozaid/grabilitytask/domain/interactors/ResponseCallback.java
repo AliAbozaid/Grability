@@ -1,5 +1,7 @@
-package com.aliabozaid.grabilitytask.data.interactors;
+package com.aliabozaid.grabilitytask.domain.interactors;
 
+
+import com.aliabozaid.grabilitytask.domain.interactors.base.Interactor;
 
 /**
  * Created by aliabozaid on 3/17/16.

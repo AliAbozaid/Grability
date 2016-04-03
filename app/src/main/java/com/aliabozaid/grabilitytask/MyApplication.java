@@ -2,9 +2,9 @@ package com.aliabozaid.grabilitytask;
 
 import android.app.Application;
 
-import com.aliabozaid.grabilitytask.data.contollers.ApiComponent;
-import com.aliabozaid.grabilitytask.data.contollers.DaggerApiComponent;
-import com.aliabozaid.grabilitytask.data.module.ApiModule;
+import com.aliabozaid.grabilitytask.domain.contollers.ApiComponent;
+import com.aliabozaid.grabilitytask.domain.contollers.DaggerApiComponent;
+import com.aliabozaid.grabilitytask.domain.module.ApiModule;
 
 import java.io.File;
 

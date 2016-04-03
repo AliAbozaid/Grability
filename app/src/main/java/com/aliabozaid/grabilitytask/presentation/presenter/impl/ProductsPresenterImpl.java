@@ -1,8 +1,8 @@
 package com.aliabozaid.grabilitytask.presentation.presenter.impl;
 
 
-import com.aliabozaid.grabilitytask.data.interactors.ResponseCallback;
-import com.aliabozaid.grabilitytask.data.interactors.impl.ProductsInteractorImpl;
+import com.aliabozaid.grabilitytask.domain.interactors.ResponseCallback;
+import com.aliabozaid.grabilitytask.domain.interactors.impl.ProductsInteractorImpl;
 import com.aliabozaid.grabilitytask.presentation.presenter.MainPresenter;
 
 import retrofit2.Retrofit;

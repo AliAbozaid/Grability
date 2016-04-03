@@ -1,4 +1,4 @@
-package com.aliabozaid.grabilitytask.data.models;
+package com.aliabozaid.grabilitytask.domain.models;
 
 import com.google.gson.annotations.SerializedName;
 
