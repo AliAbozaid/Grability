@@ -7,20 +7,18 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.aliabozaid.grabilitytask.BuildConfig;
 import com.aliabozaid.grabilitytask.R;
 import com.aliabozaid.grabilitytask.presentation.presenter.MainPresenter;
 import com.aliabozaid.grabilitytask.presentation.presenter.impl.ProductsPresenterImpl;
 import com.aliabozaid.grabilitytask.presentation.ui.adapters.ProductsAdapter;
-import com.aliabozaid.grabilitytask.data.contollers.ProductController;
-import com.aliabozaid.grabilitytask.data.models.ListOfProductsModel;
+import com.aliabozaid.grabilitytask.domain.contollers.ProductController;
+import com.aliabozaid.grabilitytask.domain.models.ListOfProductsModel;
 import com.aliabozaid.grabilitytask.MyApplication;
 
 import java.util.ArrayList;
@@ -29,9 +27,6 @@ import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class ListOfProductsFragment extends Fragment implements MainPresenter.PresenterCallBack {

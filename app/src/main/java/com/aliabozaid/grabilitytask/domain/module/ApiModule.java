@@ -1,4 +1,4 @@
-package com.aliabozaid.grabilitytask.data.module;
+package com.aliabozaid.grabilitytask.domain.module;
 
 
 import com.aliabozaid.grabilitytask.BuildConfig;

@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import com.aliabozaid.grabilitytask.BuildConfig;
 import com.aliabozaid.grabilitytask.presentation.ui.activities.ProductDetailsActivity;
-import com.aliabozaid.grabilitytask.data.models.ListOfProductsModel;
+import com.aliabozaid.grabilitytask.domain.models.ListOfProductsModel;
 import com.aliabozaid.grabilitytask.R;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;

@@ -1,7 +1,7 @@
-package com.aliabozaid.grabilitytask.data.contollers;
+package com.aliabozaid.grabilitytask.domain.contollers;
 
 import com.aliabozaid.grabilitytask.presentation.ui.fragments.ListOfProductsFragment;
-import com.aliabozaid.grabilitytask.data.module.ApiModule;
+import com.aliabozaid.grabilitytask.domain.module.ApiModule;
 
 import javax.inject.Singleton;
 

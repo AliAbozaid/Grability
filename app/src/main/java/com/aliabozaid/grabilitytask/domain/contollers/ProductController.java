@@ -1,6 +1,6 @@
-package com.aliabozaid.grabilitytask.data.contollers;
+package com.aliabozaid.grabilitytask.domain.contollers;
 
-import com.aliabozaid.grabilitytask.data.models.ListOfProductsModel;
+import com.aliabozaid.grabilitytask.domain.models.ListOfProductsModel;
 
 import retrofit2.http.GET;
 import retrofit2.http.Path;
