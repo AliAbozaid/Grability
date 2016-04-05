@@ -142,10 +142,14 @@ public class ListOfProductsFragment extends Fragment implements MainPresenter.Pr
 
     @Override
     public void updateView(Object data) {
-        ListOfProductsModel listOfProductsModel = (ListOfProductsModel) data;
-        if (data != null) {
-            products.addAll(listOfProductsModel.feed.entry);
-            productsAdapter.notifyDataSetChanged();
+        if(data instanceof ListOfProductsModel)
+        {
+            ListOfProductsModel listOfProductsModel = (ListOfProductsModel) data;
+            if (data != null) {
+                products.addAll(listOfProductsModel.feed.entry);
+                productsAdapter.notifyDataSetChanged();
+            }
         }
+
     }
 }
