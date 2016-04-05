@@ -8,9 +8,9 @@ This repo depends on the following:
  1. Dagger2.0
  2. Retrofit2.0.0-beta4
  3. Rxjava:1.0
- 3. Picasso2.5.2
- 4. Butterknife7.0.1
- 5.frodo0.8.2
+ 4. Picasso2.5.2
+ 5. Butterknife7.0.1
+ 6.frodo0.8.2
 
 ## Description
 This sample follows clean code architecture you can find a good guide [here](https://medium.com/@dmilicic/a-detailed-guide-on-developing-android-apps-using-the-clean-architecture-pattern-d38d71e94029#.lrh6vgpxk) and [here](http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/). Please, If you know architecture better than this or you see any something wrong please please I beg you to refer to it.
