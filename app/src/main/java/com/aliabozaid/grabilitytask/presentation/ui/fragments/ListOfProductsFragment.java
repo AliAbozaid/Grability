@@ -145,11 +145,17 @@ public class ListOfProductsFragment extends Fragment implements MainPresenter.Pr
         if(data instanceof ListOfProductsModel)
         {
             ListOfProductsModel listOfProductsModel = (ListOfProductsModel) data;
-            if (data != null) {
+            if (listOfProductsModel != null) {
                 products.addAll(listOfProductsModel.feed.entry);
                 productsAdapter.notifyDataSetChanged();
             }
         }
 
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mainPresenter.destroy();
     }
 }

@@ -53,4 +53,9 @@ public class ProductsInteractorImpl implements ResponseCallback {
 
     }
 
+
+    @Override
+    public void unsubscribe() {
+
+    }
 }
