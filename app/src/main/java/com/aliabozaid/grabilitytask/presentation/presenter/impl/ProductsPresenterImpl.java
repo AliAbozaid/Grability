@@ -29,4 +29,35 @@ public class ProductsPresenterImpl implements MainPresenter, ResponseCallback.MY
     public void error(Throwable t) {
         presenterCallBack.showConnectionError(t);
     }
+
+    @Override
+    public void onStart() {
+
+    }
+
+    @Override
+    public void onCreate() {
+
+    }
+
+    @Override
+    public void onResume() {
+
+    }
+
+    @Override
+    public void onPause() {
+
+    }
+
+    @Override
+    public void onStop() {
+
+    }
+
+    @Override
+    public void onDestroy() {
+        responseCallback.unsubscribe();
+    }
+
 }
