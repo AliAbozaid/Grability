@@ -75,25 +75,4 @@ public class ApiModule {
                 .build();
     }
 
-    private static final Interceptor REWRITE_CACHE_CONTROL_INTERCEPTOR = new Interceptor() {
-        @Override
-        public Response intercept(Chain chain) throws IOException {
-            Response originalResponse = chain.proceed(chain.request());
-            return originalResponse.newBuilder()
-                    .header("Cache-Control", String.format("max-age=%d, only-if-cached, max-stale=%d", BuildConfig.CACHETIME, 0))
-                    .build();
-        }
-    };
-    private static final Interceptor REWRITE_CACHE_CONTROL_INTERCEPTOR2 = new Interceptor() {
-        @Override
-        public Response intercept(Chain chain) throws IOException {
-            Response originalResponse = chain.proceed(chain.request());
-            return originalResponse.newBuilder()
-                    .removeHeader("Pragma")
-                    .header("Cache-Control",
-                            String.format("max-age=%d", 60))
-                    .build();
-        }
-    };
-
 }

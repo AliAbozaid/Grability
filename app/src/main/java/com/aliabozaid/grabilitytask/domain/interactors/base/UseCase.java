@@ -18,8 +18,8 @@ public abstract class UseCase {
 
     public void execute(Subscriber UseCaseSubscriber) {
         this.subscription = this.buildUseCaseObservable()
-                .subscribeOn(Schedulers.io())//Schedulers.from(threadExecutor) threadpoolexectors
-                .observeOn(AndroidSchedulers.mainThread())// postExecutionThread.getScheduler() your main thread
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(UseCaseSubscriber);
     }
 

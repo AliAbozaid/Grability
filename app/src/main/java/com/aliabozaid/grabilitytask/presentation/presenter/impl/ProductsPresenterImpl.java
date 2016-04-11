@@ -2,7 +2,7 @@ package com.aliabozaid.grabilitytask.presentation.presenter.impl;
 
 
 import com.aliabozaid.grabilitytask.domain.interactors.ResponseCallback;
-import com.aliabozaid.grabilitytask.domain.interactors.impl.ProductsInteractorImpl2;
+import com.aliabozaid.grabilitytask.domain.interactors.impl.ProductsInteractorImpl;
 import com.aliabozaid.grabilitytask.presentation.presenter.MainPresenter;
 
 import retrofit2.Retrofit;
@@ -16,7 +16,7 @@ public class ProductsPresenterImpl implements MainPresenter, ResponseCallback.MY
 
     public ProductsPresenterImpl(Retrofit retrofit, String url, PresenterCallBack presenterCallBack) {
         this.presenterCallBack = presenterCallBack;
-        responseCallback = new ProductsInteractorImpl2(retrofit, url, this, presenterCallBack);
+        responseCallback = new ProductsInteractorImpl(retrofit, url, this, presenterCallBack);
     }
 
 
@@ -31,17 +31,33 @@ public class ProductsPresenterImpl implements MainPresenter, ResponseCallback.MY
     }
 
     @Override
-    public void resume() {
+    public void onStart() {
 
     }
 
     @Override
-    public void pause() {
+    public void onCreate() {
 
     }
 
     @Override
-    public void destroy() {
+    public void onResume() {
+
+    }
+
+    @Override
+    public void onPause() {
+
+    }
+
+    @Override
+    public void onStop() {
+
+    }
+
+    @Override
+    public void onDestroy() {
         responseCallback.unsubscribe();
     }
+
 }

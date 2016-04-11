@@ -13,13 +13,12 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.aliabozaid.grabilitytask.MyApplication;
 import com.aliabozaid.grabilitytask.R;
+import com.aliabozaid.grabilitytask.domain.models.ListOfProductsModel;
 import com.aliabozaid.grabilitytask.presentation.presenter.MainPresenter;
 import com.aliabozaid.grabilitytask.presentation.presenter.impl.ProductsPresenterImpl;
 import com.aliabozaid.grabilitytask.presentation.ui.adapters.ProductsAdapter;
-import com.aliabozaid.grabilitytask.domain.contollers.ProductController;
-import com.aliabozaid.grabilitytask.domain.models.ListOfProductsModel;
-import com.aliabozaid.grabilitytask.MyApplication;
 
 import java.util.ArrayList;
 
@@ -30,7 +29,7 @@ import butterknife.ButterKnife;
 import retrofit2.Retrofit;
 
 public class ListOfProductsFragment extends Fragment implements MainPresenter.PresenterCallBack {
-    ProductController productController;
+    //ProductController productController;
     @Bind(R.id.recycler_view)
     RecyclerView recyclerView;
     @Bind(R.id.progress_bar)
@@ -99,7 +98,7 @@ public class ListOfProductsFragment extends Fragment implements MainPresenter.Pr
         recyclerView.setAdapter(productsAdapter);
 
 
-        productController = retrofit.create(ProductController.class);
+        //productController = retrofit.create(ProductController.class);
         //call presenter to get data
         mainPresenter = new ProductsPresenterImpl(retrofit, url, this);
 
@@ -121,13 +120,10 @@ public class ListOfProductsFragment extends Fragment implements MainPresenter.Pr
 
     @Override
     public void showLoading(boolean show) {
-        if (show)
-        {
+        if (show) {
             progressBar.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.GONE);
-        }
-        else
-        {
+        } else {
             progressBar.setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
         }
@@ -142,8 +138,7 @@ public class ListOfProductsFragment extends Fragment implements MainPresenter.Pr
 
     @Override
     public void updateView(Object data) {
-        if(data instanceof ListOfProductsModel)
-        {
+        if (data instanceof ListOfProductsModel) {
             ListOfProductsModel listOfProductsModel = (ListOfProductsModel) data;
             if (listOfProductsModel != null) {
                 products.addAll(listOfProductsModel.feed.entry);
@@ -156,6 +151,6 @@ public class ListOfProductsFragment extends Fragment implements MainPresenter.Pr
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mainPresenter.destroy();
+        mainPresenter.onDestroy();
     }
 }
