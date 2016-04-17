@@ -6,13 +6,16 @@ import com.aliabozaid.grabilitytask.presentation.presenter.MainPresenter;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertEquals;
 
 /**
  * Created by aliabozaid on 4/13/16.
  */
+@RunWith(MockitoJUnitRunner.class)
 public class ListOfProductsFragmentsTest implements MainPresenter.PresenterCallBack, ResponseCallback.MYCallback  {
     @Mock ResponseCallback.MYCallback myCallback;
     @Mock Throwable throwable;
@@ -24,8 +27,12 @@ public class ListOfProductsFragmentsTest implements MainPresenter.PresenterCallB
     {
         presenterCallBack = this;
         myCallback = this;
+        throwable = new Throwable("my error");
         listOfProductsModel = new ListOfProductsModel();
-        throwable = new Throwable();
+        listOfProductsModel.feed = new ListOfProductsModel().new Feed();
+        listOfProductsModel.feed.author = new ListOfProductsModel().new Feed().new Author();
+        listOfProductsModel.feed.author.uri = new ListOfProductsModel().new Feed().new Author().new Uri();
+        listOfProductsModel.feed.author.uri.label = "test";
     }
     @Test
     public void productSuccessSubscriberCalled()
